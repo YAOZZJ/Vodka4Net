@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{4CE21CDB-47DC-46B4-9F66-50AF6B320FB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{102A44E0-1566-489C-8ADA-AF733B51CEA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{55CB3B77-C960-4E01-8BDD-0457970E4574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vodka4Net", "Vodka4Net\Vodka4Net.csproj", "{1F7733FE-7658-4298-8DD4-9B082D7B9F2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EDF15BD-8DA0-4B32-97C8-D25244ADE060}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F7733FE-7658-4298-8DD4-9B082D7B9F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F7733FE-7658-4298-8DD4-9B082D7B9F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F7733FE-7658-4298-8DD4-9B082D7B9F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F7733FE-7658-4298-8DD4-9B082D7B9F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F7733FE-7658-4298-8DD4-9B082D7B9F2B} = {4CE21CDB-47DC-46B4-9F66-50AF6B320FB6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4C5D8C3-D62C-4D15-A65E-E2E8A3756CA6}
+	EndGlobalSection
+EndGlobal
