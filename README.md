@@ -1,5 +1,5 @@
 # Vodka4Net
-用C# 仿造https://github.com/je00/Vodka
+用C# 仿造 https://github.com/je00/Vodka
 
 | 搬砖者 | YAOZZJ |
 | --- | --- |
