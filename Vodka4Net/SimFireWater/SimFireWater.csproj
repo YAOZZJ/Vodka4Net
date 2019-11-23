@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyServer.cs" />
+    <Compile Include="MyToolkits.Log.Console\ConsoleOutput.cs" />
     <Compile Include="MyToolkits.Sockets\SocketClient.cs" />
     <Compile Include="MyToolkits.Sockets\SocketConnection.cs" />
     <Compile Include="MyToolkits.Sockets\SocketServer.cs" />

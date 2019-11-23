@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyToolkits.Log.Console;
+using System;
+using System.Reflection;
 
 namespace SimFireWater
 {
@@ -6,9 +8,10 @@ namespace SimFireWater
     {
         static void Main(string[] args)
         {
+            ConsoleOutput output = new ConsoleOutput(MethodBase.GetCurrentMethod().Name);
             MyServer _server = new MyServer();
             _server.Listen();
-            Console.WriteLine("服务器已启动,按回车键退出");
+            output.WriteLine("服务器已启动,按回车键退出");
             Console.ReadLine();
         }
     }

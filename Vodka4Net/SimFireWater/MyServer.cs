@@ -1,5 +1,7 @@
-﻿using MyToolkits.Sockets;
+﻿using MyToolkits.Log.Console;
+using MyToolkits.Sockets;
 using System;
+using System.Reflection;
 using System.Text;
 
 namespace SimFireWater
@@ -10,6 +12,7 @@ namespace SimFireWater
         {
             Ip = "127.0.0.1";
             Port = 9600;
+            output = new ConsoleOutput("MyServer");
         }
 
         #region Action
@@ -34,19 +37,19 @@ namespace SimFireWater
             _server.HandleRecMsg = new Action<byte[], SocketConnection, SocketServer>((bytes, client, theServer) =>
             {
                 string msg = Encoding.UTF8.GetString(bytes);
-                System.Diagnostics.Debug.WriteLine($"MyServer | {client.RemoteEndPoint.ToString()}=>:{msg}");
+                output.WriteLine($"{client.RemoteEndPoint.ToString()}=>:{msg}");
             });
 
             //处理服务器启动后事件
             _server.HandleServerStarted = new Action<SocketServer>(theServer =>
             {
-                System.Diagnostics.Debug.WriteLine("MyServer | 服务已启动");
+                output.WriteLine("服务已启动");
             });
 
             //处理新的客户端连接后的事件
             _server.HandleNewClientConnected = new Action<SocketServer, SocketConnection>((theServer, theCon) =>
             {
-                System.Diagnostics.Debug.WriteLine($@"MyServer | 一个新的客户端接入，当前连接数：{theServer.GetConnectionCount()}");
+                output.WriteLine($@"一个新的客户端接入，当前连接数：{theServer.GetConnectionCount()}");
                 //Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.SystemIdle, new Action(() =>
                 //{
                 //    //ConnectionList.Add(theCon.RemoteEndPoint.ToString());
@@ -61,7 +64,7 @@ namespace SimFireWater
             //处理客户端连接关闭后的事件
             _server.HandleClientClose = new Action<SocketConnection, SocketServer>((theCon, theServer) =>
             {
-                System.Diagnostics.Debug.WriteLine($@"MyServer | 一个客户端关闭，当前连接数为：{theServer.GetConnectionCount()}");
+                output.WriteLine($@"一个客户端关闭，当前连接数为：{theServer.GetConnectionCount()}");
                 //Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.SystemIdle, new Action(() =>
                 //{
                 //    ConnectionList.Clear();
@@ -76,7 +79,7 @@ namespace SimFireWater
             //处理异常
             _server.HandleException = new Action<Exception>(ex =>
             {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                output.WriteLine(ex.Message);
             });
 
             //服务器启动
@@ -90,6 +93,7 @@ namespace SimFireWater
         int _port;
         string _ip;
         string _sendData;
+        ConsoleOutput output;
 
         public int Port { get => _port; set => _port = value; }
         public string Ip { get => _ip; set => _ip = value; }
