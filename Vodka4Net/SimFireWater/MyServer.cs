@@ -22,10 +22,15 @@ namespace SimFireWater
         {
             Listen(Port, Ip);
         }
-        void Send()
+        public void Send()
         {
             if (string.IsNullOrEmpty(SendData) || !_server.IsListen || _server.GetConnectionCount() == 0) return;
             _server.Send(SendData, SelectedSession);
+        }
+        public void Send(string data)
+        {
+            if (string.IsNullOrEmpty(data) || !_server.IsListen || _server.GetConnectionCount() == 0) return;
+            _server.Send(data);
         }
         public void Listen(int port = 9600, string ip = "127.0.0.1")
         {
@@ -43,37 +48,20 @@ namespace SimFireWater
             //处理服务器启动后事件
             _server.HandleServerStarted = new Action<SocketServer>(theServer =>
             {
-                output.WriteLine("服务已启动");
+                output.WriteLine($"服务已启动 {_server.LocalIPEndPoint.ToString()}");
             });
 
             //处理新的客户端连接后的事件
             _server.HandleNewClientConnected = new Action<SocketServer, SocketConnection>((theServer, theCon) =>
             {
-                output.WriteLine($@"一个新的客户端接入，当前连接数：{theServer.GetConnectionCount()}");
-                //Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.SystemIdle, new Action(() =>
-                //{
-                //    //ConnectionList.Add(theCon.RemoteEndPoint.ToString());
-                //    ConnectionList.Clear();
-                //    foreach (var node in _server.GetRemoteEndPointList())
-                //    {
-                //        ConnectionList.Add(node.ToString());
-                //    }
-                //}));
+                output.WriteLine($"新链接 : { theCon.RemoteIPEndPoint.ToString()}，当前连接数：{theServer.GetConnectionCount()}");
+                
             });
 
             //处理客户端连接关闭后的事件
             _server.HandleClientClose = new Action<SocketConnection, SocketServer>((theCon, theServer) =>
             {
                 output.WriteLine($@"一个客户端关闭，当前连接数为：{theServer.GetConnectionCount()}");
-                //Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.SystemIdle, new Action(() =>
-                //{
-                //    ConnectionList.Clear();
-                //    if (_server.GetConnectionCount() < 1) return;
-                //    foreach (var node in _server.GetRemoteEndPointList())
-                //    {
-                //        ConnectionList.Add(node.ToString());
-                //    }
-                //}));
             });
 
             //处理异常
