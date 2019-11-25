@@ -7,6 +7,7 @@
         xmlns:avalondock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:ctrl="clr-namespace:Vodka4Net.Control"
         mc:Ignorable="d"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="MainView" Height="450" Width="800">
     <DockPanel>
         <ctrl:RbnRibbon DockPanel.Dock="Top"/>
@@ -22,6 +23,10 @@
                             <avalondock:LayoutDocumentPaneGroup Orientation="Horizontal">
                                 <avalondock:LayoutDocumentPane>
                                     <avalondock:LayoutDocument Title="Debug">
+                                        <StackPanel>
+                                            <Button Command="{Binding Cmd1}"/>
+                                            <TextBlock Text="{Binding MainTick}"/>
+                                        </StackPanel>
                                     </avalondock:LayoutDocument>
                                     <avalondock:LayoutDocument Title="Main">
                                     </avalondock:LayoutDocument>

@@ -6,9 +6,10 @@
 | E-Mail | yaozzj@163.com |
 
 
-<div align="center">
+<div align="left">
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/YAOZZJ/Vodka4Net/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache-yeallow.svg?style=flat-square)](https://github.com/YAOZZJ/Vodka4Net/blob/master/LICENSE)  
+![Net4](https://badgen.net/badge/Framework/.Net&nbsp;4.7.2/blue)
 
 </div>
 
@@ -19,12 +20,16 @@
 * [License](#License)
   * [MIT](#MIT_License) 
   * [Apache](#Apache_License) 
+* [解决方案构成](#解决方案构成)
+  * [Vodka4Net](#Vodka4Net)
+  * [SimFireWater](#SimFireWater)
+  * [SimJustFloat](#SimJustFloat)
 ---
 ### 项目简介
 用C# 仿造 https://github.com/je00/Vodka  
 基于 .NetFrameWork 4.7.2(PS:.netcore的WPF 有些功能不知道在哪里找,先弄个NetFrameWork版本吧)  
 做着玩的,用来巩固C#的知识,功能、性能各方面跟原版没得比  
-不喜勿喷,接收各位指导，欢迎各位重构๑乛◡乛๑ 
+不喜勿喷,接受各位指导，欢迎各位重构๑乛◡乛๑ 
 
 ---
 ### 用到的库:
@@ -35,8 +40,37 @@ MvvmLight |MIT| http://www.mvvmlight.net/
 MaterialDesignInXamlToolkit |MIT| https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
 Fluent.Ribbon |MIT| https://github.com/fluentribbon/Fluent.Ribbon
 Dirkster.AvalonDock |MIT| https://github.com/Dirkster99/AvalonDock
+Autofac|MIT| https://autofac.org/
 
 ---
+### 解决方案构成
+#### Vodka4Net
+
+#### SimFireWater
+以'\n'（十六进制0x0a）结尾
+
+|1|2
+|
+IP|127.0.0.1
+Port|9600
+特点|小端浮点数据，纯十六进制浮点传输
+数据格式|"any:float0,float1,float2,...,floatN\n"
+发送四个曲线的例子|"d0:1.386578,0.977929,­0.628913,­0.942729\n"
+
+#### SimJustFloat
+
+以0x7F800000结尾的数据
+
+|1|2
+|
+IP|127.0.0.1
+Port|9600
+特点|纯字符串，像printf一样简单
+数据格式|float f[N +1]; f[0]=data0; f[1]=data1; ... ; f[N­1]=dataN; *((int*)&f[N])=0x7F800000;
+发送四个曲线的例子|bf 10 59 3f b1 02 95 3e 57 a6 16 be 7b 4d 7f bf 00 00 80 7f
+
+---
+
 ### License
 #### MIT_License
 ```
