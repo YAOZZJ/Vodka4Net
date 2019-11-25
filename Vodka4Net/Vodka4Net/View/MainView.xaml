@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vodka4Net.View"
+        xmlns:avalondock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:ctrl="clr-namespace:Vodka4Net.Control"
         mc:Ignorable="d"
         Title="MainView" Height="450" Width="800">
@@ -11,7 +12,78 @@
         <ctrl:RbnRibbon DockPanel.Dock="Top"/>
         <ctrl:RbnStatusBar DockPanel.Dock="Bottom"/>
         <Grid>
-            
+            <avalondock:DockingManager>
+                <avalondock:DockingManager.Theme>
+                    <avalondock:MetroTheme/>
+                </avalondock:DockingManager.Theme>
+                <avalondock:LayoutRoot>
+                    <avalondock:LayoutPanel >
+                        <avalondock:LayoutPanel Orientation="Vertical">
+                            <avalondock:LayoutDocumentPaneGroup Orientation="Horizontal">
+                                <avalondock:LayoutDocumentPane>
+                                    <avalondock:LayoutDocument Title="Debug">
+                                    </avalondock:LayoutDocument>
+                                    <avalondock:LayoutDocument Title="Main">
+                                    </avalondock:LayoutDocument>
+                                </avalondock:LayoutDocumentPane>
+                            </avalondock:LayoutDocumentPaneGroup>
+                            <avalondock:LayoutAnchorablePaneGroup DockHeight="160" FloatingHeight="100">
+                                <avalondock:LayoutAnchorablePane>
+                                    <avalondock:LayoutAnchorable Title="Output">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <CheckBox Margin="0 0 5 0" Grid.Column="0">Hex</CheckBox>
+                                                <CheckBox Margin="0 0 5 0" Grid.Column="1">Time stamp</CheckBox>
+                                                <Button Grid.Column="3">Clear</Button>
+                                            </Grid>
+                                            <TextBox Grid.Row="1" MinLines="5"/>
+                                            <Grid Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Grid.Column="0" Margin="0 0 5 0"/>
+                                                <ComboBox Width="80" Grid.Column="1" Margin="0 0 5 0"/>
+                                                <ComboBox Width="80" Grid.Column="3" Margin="0 0 5 0"/>
+                                                <ComboBox Width="80" Grid.Column="4" Margin="0 0 5 0"/>
+                                                <Button Grid.Column="5">Send</Button>
+                                                <TextBox Grid.Column="2"/>
+                                            </Grid>
+                                        </Grid>
+                                    </avalondock:LayoutAnchorable>
+                                    <avalondock:LayoutAnchorable Title="Messages">
+                                    </avalondock:LayoutAnchorable>
+                                </avalondock:LayoutAnchorablePane>
+                            </avalondock:LayoutAnchorablePaneGroup>
+                        </avalondock:LayoutPanel>
+                        <avalondock:LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="150" FloatingWidth="100">
+                            <avalondock:LayoutAnchorablePane>
+                                <avalondock:LayoutAnchorable Title="Current">
+                                </avalondock:LayoutAnchorable>
+                            </avalondock:LayoutAnchorablePane>
+                            <!--<avalondock:LayoutAnchorablePane>
+                                <avalondock:LayoutAnchorable Title="LineChart">
+                                </avalondock:LayoutAnchorable>
+                            </avalondock:LayoutAnchorablePane>-->
+                        </avalondock:LayoutAnchorablePaneGroup>
+                    </avalondock:LayoutPanel>
+                </avalondock:LayoutRoot>
+            </avalondock:DockingManager>
         </Grid>
     </DockPanel>
 </Window>
