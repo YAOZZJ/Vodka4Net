@@ -34,8 +34,8 @@
 ---
 ### 用到的库:
 
-|名称|license|链接 
-|
+| 名称 | license | 链接 |
+| --- | --- | --- |
 MvvmLight |MIT| http://www.mvvmlight.net/ 
 MaterialDesignInXamlToolkit |MIT| https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
 Fluent.Ribbon |MIT| https://github.com/fluentribbon/Fluent.Ribbon
@@ -49,8 +49,8 @@ Autofac|MIT| https://autofac.org/
 #### SimFireWater
 以'\n'（十六进制0x0a）结尾
 
-|1|2
-|
+| 1 | 2 |
+| --- | --- |
 IP|127.0.0.1
 Port|9600
 特点|小端浮点数据，纯十六进制浮点传输
@@ -61,8 +61,8 @@ Port|9600
 
 以0x7F800000结尾的数据
 
-|1|2
-|
+| 1 | 2 |
+| --- | --- |
 IP|127.0.0.1
 Port|9600
 特点|纯字符串，像printf一样简单
