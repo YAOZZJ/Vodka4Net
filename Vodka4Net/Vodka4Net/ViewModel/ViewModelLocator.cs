@@ -26,11 +26,13 @@ namespace Vodka4Net.ViewModel
 
             //SimpleIoc.Default.Register<MainViewModel>();
             MainVMbuilder.RegisterType<MainViewModel>();
+            MainVMbuilder.RegisterType<DebugViewModel>();
             MainVMContainer = MainVMbuilder.Build();
         }
         #region ViewModelÊµÀý
         //public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public MainViewModel Main => MainVMContainer.BeginLifetimeScope().Resolve<MainViewModel>();
+        public DebugViewModel Debug => MainVMContainer.BeginLifetimeScope().Resolve<DebugViewModel>();
         #endregion
         #region ÈÝÆ÷½Ó¿Ú
         static IContainer MainVMContainer { get; set; }

@@ -72,6 +72,9 @@
                                         </Grid>
                                     </avalondock:LayoutAnchorable>
                                     <avalondock:LayoutAnchorable Title="Messages">
+                                        <ListBox>
+                                            
+                                        </ListBox>
                                     </avalondock:LayoutAnchorable>
                                 </avalondock:LayoutAnchorablePane>
                             </avalondock:LayoutAnchorablePaneGroup>

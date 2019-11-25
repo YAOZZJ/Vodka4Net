@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resource\ICON\V_128px.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
@@ -106,6 +109,8 @@
     <Compile Include="Control\RbnStatusBar.xaml.cs">
       <DependentUpon>RbnStatusBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service\MyTraceListener.cs" />
+    <Compile Include="ViewModel\DebugViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\MainView.xaml.cs">
@@ -157,8 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Resource\" />
-    <Folder Include="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\ICON\V_128px.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
