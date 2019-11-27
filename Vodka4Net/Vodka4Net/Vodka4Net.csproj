@@ -110,7 +110,6 @@
       <DependentUpon>RbnStatusBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\MyTraceListener.cs" />
-    <Compile Include="ViewModel\DebugViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\MainView.xaml.cs">

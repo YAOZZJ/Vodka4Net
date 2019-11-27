@@ -10,12 +10,12 @@
         <Fluent:Ribbon>
             <Fluent:RibbonTabItem Header="Home">
                 <Fluent:RibbonGroupBox Header="Main">
-                    <Fluent:Button Size="Middle" Command="{Binding MainCommand1}">B1</Fluent:Button>
-                    <Fluent:Button Size="Middle" Command="{Binding MainCommand2}">B2</Fluent:Button>
-                    <Fluent:Button Size="Middle" Command="{Binding MainCommand3}">B3</Fluent:Button>
-                    <Fluent:Button Size="Middle" Command="{Binding MainCommand4}">B4</Fluent:Button>
-                    <Fluent:Button Size="Middle" Command="{Binding MainCommand5}">B5</Fluent:Button>
-                    <Fluent:Button Size="Middle" Command="{Binding MainCommand6}">B6</Fluent:Button>
+                    <Fluent:Button Size="Middle" Command="{Binding Cmd1}">B1</Fluent:Button>
+                    <Fluent:Button Size="Middle" Command="{Binding Cmd2}">B2</Fluent:Button>
+                    <Fluent:Button Size="Middle" Command="{Binding Cmd3}">B3</Fluent:Button>
+                    <Fluent:Button Size="Middle" Command="{Binding Cmd4}">B4</Fluent:Button>
+                    <Fluent:Button Size="Middle" Command="{Binding Cmd5}">B5</Fluent:Button>
+                    <Fluent:Button Size="Middle" Command="{Binding Cmd6}">B6</Fluent:Button>
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Connection">
                     <Grid>
@@ -29,8 +29,16 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center">Protocol</TextBlock>
                         <Fluent:ToggleButton Grid.Row="1" Size="Middle">Connect</Fluent:ToggleButton>
-                        <Fluent:ComboBox Grid.Row="0" Grid.Column="1" Width="160" IsEditable="False"></Fluent:ComboBox>
-                        <Fluent:ComboBox Grid.Row="1" Grid.Column="1" Width="160" IsEditable="False"></Fluent:ComboBox>
+                        <Fluent:ComboBox Grid.Row="0" Grid.Column="1" Width="100" 
+                                         IsEditable="False" 
+                                         SelectedIndex="1" ItemsSource="{Binding ProtocolList}" 
+                                         IsEnabled="False"
+                                         ></Fluent:ComboBox>
+                        <Fluent:ComboBox Grid.Row="1" Grid.Column="1" Width="100" 
+                                         IsEditable="False" 
+                                         SelectedIndex="1" ItemsSource="{Binding CommMethodList}" 
+                                         IsEnabled="False"
+                                         ></Fluent:ComboBox>
                     </Grid>
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Comm Settings">
@@ -47,9 +55,15 @@
                         <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right">RemoteIP</TextBlock>
                         <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">LocalIP</TextBlock>
                         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Port</TextBlock>
-                        <Fluent:ComboBox Grid.Row="0" Grid.Column="1" Width="160"></Fluent:ComboBox>
-                        <Fluent:ComboBox Grid.Row="1" Grid.Column="1" Width="160"></Fluent:ComboBox>
-                        <Fluent:ComboBox Grid.Row="2" Grid.Column="1" Width="160"></Fluent:ComboBox>
+                        <Fluent:ComboBox Grid.Row="0" Grid.Column="1" Width="120" 
+                                         SelectedIndex="0" ItemsSource="{Binding IpList}"
+                                         ></Fluent:ComboBox>
+                        <Fluent:ComboBox Grid.Row="1" Grid.Column="1" Width="120" 
+                                         SelectedIndex="0" ItemsSource="{Binding IpList}"
+                                         ></Fluent:ComboBox>
+                        <Fluent:ComboBox Grid.Row="2" Grid.Column="1" Width="120" 
+                                         SelectedIndex="0" ItemsSource="{Binding PortList}"
+                                         ></Fluent:ComboBox>
                     </Grid>
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Send Settings">
@@ -61,7 +75,7 @@
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
             <Fluent:RibbonTabItem Header="Debug"
-                                   DataContext="{Binding Source={StaticResource Locator},Path=Debug}">
+                                   >
                 <Fluent:RibbonGroupBox Header="Button">
                     <Fluent:Button Size="Middle" x:Name="BtnDebug1" Command="{Binding BtnDebug1Command}">B1</Fluent:Button>
                     <Fluent:Button Size="Middle" x:Name="BtnDebug2" Command="{Binding BtnDebug2Command}">B2</Fluent:Button>

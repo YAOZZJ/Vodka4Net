@@ -1,6 +1,6 @@
-//using CommonServiceLocator;
+using CommonServiceLocator;
 using GalaSoft.MvvmLight;
-//using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Ioc;
 using Autofac;
 
 namespace Vodka4Net.ViewModel
@@ -26,16 +26,15 @@ namespace Vodka4Net.ViewModel
 
             //SimpleIoc.Default.Register<MainViewModel>();
             MainVMbuilder.RegisterType<MainViewModel>();
-            MainVMbuilder.RegisterType<DebugViewModel>();
             MainVMContainer = MainVMbuilder.Build();
         }
         #region ViewModelÊµÀý
         //public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public MainViewModel Main => MainVMContainer.BeginLifetimeScope().Resolve<MainViewModel>();
-        public DebugViewModel Debug => MainVMContainer.BeginLifetimeScope().Resolve<DebugViewModel>();
         #endregion
         #region ÈÝÆ÷½Ó¿Ú
         static IContainer MainVMContainer { get; set; }
+        //static IContainer MyClientContainer { get; set; }
         #endregion
         public static void Cleanup()
         {

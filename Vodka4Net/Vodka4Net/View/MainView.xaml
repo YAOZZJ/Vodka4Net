@@ -24,8 +24,6 @@
                                 <avalondock:LayoutDocumentPane>
                                     <avalondock:LayoutDocument Title="Debug">
                                         <StackPanel>
-                                            <Button Command="{Binding Cmd1}"/>
-                                            <TextBlock Text="{Binding MainTick}"/>
                                         </StackPanel>
                                     </avalondock:LayoutDocument>
                                     <avalondock:LayoutDocument Title="Main">
