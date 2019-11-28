@@ -28,7 +28,10 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center">Protocol</TextBlock>
-                        <Fluent:ToggleButton Grid.Row="1" Size="Middle">Connect</Fluent:ToggleButton>
+                        <Fluent:ToggleButton Grid.Row="1" Size="Middle"
+                                             Command="{Binding CmdConnect}"
+                                             IsChecked="{Binding IsConnect}"
+                                             >Connect</Fluent:ToggleButton>
                         <Fluent:ComboBox Grid.Row="0" Grid.Column="1" Width="100" 
                                          IsEditable="False" 
                                          SelectedIndex="1" ItemsSource="{Binding ProtocolList}" 
@@ -57,12 +60,15 @@
                         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Port</TextBlock>
                         <Fluent:ComboBox Grid.Row="0" Grid.Column="1" Width="120" 
                                          SelectedIndex="0" ItemsSource="{Binding IpList}"
+                                         Text="{Binding Ip}"
                                          ></Fluent:ComboBox>
                         <Fluent:ComboBox Grid.Row="1" Grid.Column="1" Width="120" 
                                          SelectedIndex="0" ItemsSource="{Binding IpList}"
+                                         IsEnabled="False"
                                          ></Fluent:ComboBox>
                         <Fluent:ComboBox Grid.Row="2" Grid.Column="1" Width="120" 
                                          SelectedIndex="0" ItemsSource="{Binding PortList}"
+                                         Text="{Binding Port}"
                                          ></Fluent:ComboBox>
                     </Grid>
                 </Fluent:RibbonGroupBox>

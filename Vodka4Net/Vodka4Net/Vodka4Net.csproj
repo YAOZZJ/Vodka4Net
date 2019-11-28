@@ -109,7 +109,7 @@
     <Compile Include="Control\RbnStatusBar.xaml.cs">
       <DependentUpon>RbnStatusBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service\MyTraceListener.cs" />
+    <Compile Include="Service\Message.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\MainView.xaml.cs">
@@ -164,6 +164,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\ICON\V_128px.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LTSProject\LTSProject\MyToolkits.Sockets\MyToolkits.Sockets.csproj">
+      <Project>{B8AD5565-6695-4FA0-BEE1-D4A8A858030F}</Project>
+      <Name>MyToolkits.Sockets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

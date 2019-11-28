@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace Vodka4Net.View
         public MainView()
         {
             InitializeComponent();
+            Messenger.Default.Register<String>(this, "Message", message=>
+            {
+                Application.Current.Dispatcher.BeginInvoke(new Action(()=> { TxtMessage.AppendText(message); }));
+                //TxtMessage.AppendText(message);
+            });
+        }
+
+        private void TxtMessage_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TxtMessage.ScrollToEnd();
         }
     }
 }
